@@ -56,12 +56,9 @@ if __name__ == '__main__':
     parser.add_argument('--odir', type=str, default='.', help='output directory')
     parser.add_argument('--tile', type=float, default=10, help='length of tile')
     parser.add_argument('--num-prcs', type=int, default=10, help='number of cores to use')
-    parser.add_argument('--buffer', type=float, default=10., help='size of buffer')
     parser.add_argument('--verbose', action='store_true', help='print something')
 
     args = parser.parse_args()
-
-    if args.buffer == 0: args.buffer = False
 
     point_cloud = read(args.file_path)
     xy_min = np.floor(point_cloud.xyz()[:, :2].min(axis=0))
