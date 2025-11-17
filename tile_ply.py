@@ -68,7 +68,6 @@ if __name__ == '__main__':
     X, Y = np.meshgrid(np.arange(xy_min[0], xy_max[0], args.tile),
                        np.arange(xy_min[1], xy_max[1], args.tile))
     XY = np.vstack([X.flatten(), Y.flatten()]).T.astype(int)
-    print("XY", XY)
     tiles = gp.GeoDataFrame(data=XY, columns=['x', 'y'], geometry=[Point(r[0], r[1]) for r in XY])
     
     tiles.loc[:, 'tile'] = range(len(tiles))
